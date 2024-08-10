@@ -1,0 +1,22 @@
+<form class="form-signin" action="/users/editProfile?id=<%= id %>" method="POST">
+  <h2 class="form-signin-heading">Please Edit Your Profile</h2>
+
+  
+  <label for="inputfirstname" class="sr-only">Firstname</label>
+  <input type="text" id="inputfirstname" name="firstname" class="form-control" value=<%= firstname %> required>
+
+  <label for="inputlastname" class="sr-only">Lastname</label>
+  <input type="text" id="inputlastname" name="lastname" class="form-control" value=<%= lastname %>  required>
+
+  
+
+  <label for="inputcontactno" class="sr-only">ContactNo.</label>
+  <input type="text" id="inputcontactno" name="contactno" class="form-control" value= <%= contactno %>  required>
+
+  <label for="inputaddress" class="sr-only">Address</label>
+  <input type="text" id="inputaddress" name="address" class="form-control" value = <%= address %>  required>
+
+ 
+
+  <button class="btn btn-lg btn-default btn-block" type="submit">Submit</button>
+</form>

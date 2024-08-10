@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>lenity</title>
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script src="/assets/len.js"></script>
+            <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>Lenity</h1>
+        <div id="lenity-table">
+            <ul>
+                <!-- <% for(var i=0; i< donation.length; i++){  %>
+                    
+                    <li><%= donation[i][name] %></li>
+                    <li><%= donation[i].food.quantity %></li>
+                    <li><%= donation[i].food.location %></li>
+                    
+                <% } %> -->
+                <div>
+                    <button type="submit" id="f1">Donate food</button>
+                    <button type="submit" id="f2">Donate items</button>
+                </div>
+                <h2>You donated</h2>
+                <li><%= donation %></li>
+                <li><%= username %></li>
+                <li><%= donation.donatedBy %></li>
+                <li><%= donation.quantity %></li>
+                <li><%= donation.location %></li>
+                <h1>Our executive will be there soon....</h1>
+                <h2>Executive info</h2>
+                <li><%= executive1.name %></li>
+                <li><%= executive1.contact %></li>
+                <li><%= executive1.email %></li>
+                <li><%= executive1.location %></li>
+                <li><%= executive1 %></li>
+
+            </ul>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!-- Jumbotron -->
+<html>
+    <head>
+        <title>lenity</title>
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script src="/assets/len.js"></script>
+            <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+            <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+
+<div class="jumbotron">
+    <input id="userId" type="hidden" value="<%= isUser%>">
+  <h1>Executive page!</h1>
+  <p class="lead">Only logged in users should be see this.</p>
+  <p class="lead">name: <%= username %></p>
+  <p class="lead">contact: <%= contact %></p>
+  <p class="lead">email: <%= email %></p>
+  <p class="lead">location: <%= location %></p>
+  <h2>Food to be delivered</h2>
+
+  <ul>
+      <form id="exe-conf" method="POST">
+    <% for(var i=0; i<food.length; i++){ %>
+        <li id="foodId"><%= food[i].id %></li>
+        <li><%= food[i].donatedBy %></li>
+        <li><%= food[i].quantity %></li>
+        <li><%= food[i].location %></li>
+      <li><%= food[i].status %></li>
+        <li><% if(food[i].status == true){ %></li>
+          <button type="button" disabled>delivered</button>
+          <% } else{ %> 
+        <button type="submit" id="<%= [i] %>" class="exe-confirm" value="<%= food[i].id %>">confirm delivery</button>
+        <% } %>
+      </form>
+
+        <p>-----------------------</p>
+    <% } %>
+  </ul>
+  <p>------------------:</p>
+  <h2>Items to be delivered  </h2>
+  <ul>
+      <% for(var i=0; i<item.length; i++){ %>
+          <li><%= item[i].donatedBy %></li>
+          <li><%= item[i].category %></li>
+          <li><%= item[i].location %></li>
+          <li><%= item[i].description %></li>
+          <li><%= item[i].quantity %></li>
+          <li><%= item[i].age %></li>
+          <li><%= item[i].delivery_location %></li>
+          <li><% if(item[i].status == true){ %></li>
+            <button type="button" disabled>delivered</button>
+            <% } else{ %> 
+          <button type="submit" id="<%= [i] %>" class="exe-confirm2" value="<%= item[i].id %>">confirm delivery</button>
+          <% } %>
+          <p>-----------------------</p>
+      <% } %>
+    </ul>
+
+</div>
+</body>
+</html>
+
