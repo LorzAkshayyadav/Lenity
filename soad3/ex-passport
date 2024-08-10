@@ -1,0 +1,71 @@
+const passport = require('passport');
+const JwtStrategy = require('passport-jwt').Strategy;
+const { ExtractJwt } = require('passport-jwt');
+const { JWT_SECRET } = require('./configuration/index');
+const models = require('./models/models');
+const Executive = models.executive;
+const LocalStrategy = require('passport-local').Strategy;
+
+
+
+
+// //JSON web tokens Strategy
+// passport.use(new JwtStrategy({
+//     jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+//     secretOrKey: JWT_SECRET
+// }, async (payload, done) => {
+//     try{
+//         //find user specified in token
+//         const user = await Executive.findById(payload.sub);
+
+//         //if user does not exist, handle it
+//         if(!user){
+//             return done(null, false);
+//         }
+
+//         console.log('printed');
+//         console.log(user);
+
+//         //Otherwise, return the user
+//         done(null, user);
+
+
+//     }catch(error){
+//         done(error, false);
+//     }
+
+// }));
+
+
+//Local Strategy
+
+// // LOCAL STRATEGY
+// passport.use('ex-local',new LocalStrategy({
+//     usernameField: 'email'
+//   }, async (email, password, done) => {
+//     try {
+//       // console.log('lalala');
+//       // console.log(User);
+//       // Find the user given the email
+//       const user = await Executive.findOne({ "email":email });
+//       console.log(user);
+//       // If not, handle it
+//       if (!user) {
+//         return done(null, false);
+//       }
+//       console.log(user);
+//       // Check if the password is correct
+    
+//       // If not, handle it
+//       if (password  != user.password) {
+//         return done(null, false);
+//       }
+    
+
+
+//       // Otherwise, return the user
+//       done(null, user);
+//     } catch(error) {
+//       done(error, false);
+//     }
+//   }));
